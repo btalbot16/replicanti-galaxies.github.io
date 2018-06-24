@@ -43,7 +43,7 @@
         a("tickspeed").innerHTML = "tickspeed: " + tickspeed + "ms";
         a("amount").innerHTML = "you have " + matter + " matter (+" + matterOnPrestige +")";
         a("cprice").innerHTML = cprice + " matter to upgrade chance";
-        a("updaterate").innerHTML = "update rate: " + slider.value + "ms<br><input type="range" min="20" max="200" value="50" id="updateRange">"
+        a("updaterate").innerHTML = "update rate: " + slider.value + "ms<br><input type='range' min="20" max="200" value="50" id='updateRange'>"
         
         if(!matter){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = tickspeed/matter + "% reduction to tickspeed"}
       }
