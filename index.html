@@ -55,7 +55,7 @@
 
       slider.oninput = function() {
           updateRate = slider.value;
-          clearLoop(updateLoop)
+          clearInterval(updateLoop)
           updateLoop = window.setInterval(updateHTML(), updateRate)
       }
       
