@@ -49,9 +49,9 @@
       }
       
       updateLoop = window.setInterval(updateHTML(), updateRate)
+      replicantiLoop = window.setInterval(updateReplicanti(), tickspeed)
       
       var slider = a("updateRange")
-      var output = a("updaterate")
 
       slider.oninput = function() {
           updateRate = slider.value;
@@ -59,7 +59,23 @@
           updateLoop = window.setInterval(updateHTML(), updateRate)
       }
       
-      
+      function updateReplicanti(){
+        if(replicanti < 100){
+          for(i=0;i<replicanti;i++){
+             if(chance > Math.random()*100){
+              replicanti++;
+             }
+          }
+        } else {
+            Let x = 0;
+            for(i=0;i<100;i++){
+				      if(game.replicanti.chance.gt(Math.random()*100)){
+					    x++
+				      } 
+			      }
+            replicanti = Math.floor(replicanti*(1+x/100));
+        }
+      }
       
       //end script.js
     </script>
