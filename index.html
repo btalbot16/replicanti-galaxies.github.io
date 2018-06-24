@@ -3,19 +3,51 @@
   <head>
     <title> Replicanti Galaxies </title>
     <link rel="icon" href="favicon.png" type="image"/>
-    <style>pre{text-align:center} #cprice{padding:2px;display:inline;} #matter{text-align:center} #replicanti{text-align:center}</style>
+    <style>pre{text-align:center} #cprice{padding:2px;display:inline;} #matter{text-align:center} #replicanti{text-align:center} #amount:hover{text-decoration:underline}</style>
   </head>
   <body>
     <div id="replicanti">
-      <pre id="amount">you have 0 replicanti</pre>
+      <pre id="amount">you have 1 replicanti</pre>
       <pre id="chance">replicate chance: 10%</pre>
       <pre id="tickspeed">tickspeed: 1000ms</pre>
     </div>
     <br>
     <div id="matter">
-      <pre id="amount">you have 0 matter</pre>
+      <pre id="amount">you have 0 matter (+0)</pre>
       <pre id="reduction">0% reduction to tickspeed</pre>
       <pre id="cprice" style="border: 1px solid black; border-radius: 5px">1000 matter to upgrade chance</pre>
     </div>
+    <br>
+    <div id="settings">
+      <pre id="updaterate">update rate: <br><input type="range" min="20" max="200" value="50" id="updateRange"></pre>
+      <pre id="notation">notation: <br>standard</pre>
+    </div>
+    
+    <script>
+      //begin script.js
+
+      function a(a){return document.getElementById(a)}
+      
+      var replicanti = 1;
+      var chance = 10;
+      var tickspeed = 1000;
+      var updateRate = 50;
+      
+      var matter = 0;
+      var matterOnPrestige = 0;
+      var cprice = 1000;
+      
+      function updateHTML(){
+        a("amount").innerHTML = "you have " + replicanti + " replicanti";
+        a("chance").innerHTML = "replicate chance: " + chance + "%";
+        a("tickspeed").innerHTML = "tickspeed: " + tickspeed + "ms";
+        a("amount").innerHTML = "you have " + matter + " matter (+" + matterOnPrestige +")";
+        a("cprice").innerHTML = cprice + " matter to upgrade chance"
+        
+        if(!matter){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = tickspeed/matter + "% reduction to tickspeed"}
+      }
+
+      //end script.js
+    </script>
   </body>
 </html>
