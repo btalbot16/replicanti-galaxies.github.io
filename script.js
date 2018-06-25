@@ -1,4 +1,5 @@
 function a(a){return document.getElementById(a)}
+function getBaseLog(x, y) {return Math.log(y) / Math.log(x);}
 
 var replicanti = new Decimal(1);
 var chance = new Decimal(10);
@@ -17,7 +18,7 @@ function updateHTML(){
 	a("amount").innerHTML = "you have " + formatValue("Mixed scientific", matter, 2, 0) + " matter (+" + formatValue("Mixed scientific", matterOnPrestige, 2, 0) +")";
 	a("cprice").innerHTML = cprice + " matter to upgrade chance";
 
-	if(matter==0){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = tickspeed.div(matter) + "% reduction to tickspeed"}
+	if(matter==0){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = getBaseLog(4, matter.toNumber())^0.2 + "% reduction to tickspeed"}
 }
 
 var slider = a("updateRange")
