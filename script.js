@@ -11,7 +11,7 @@ var cprice = 1000;
 
 function updateHTML(){
 	console.log("UPDATE")
-	a("ramount").innerHTML = "you have " + formatValuereplicanti("Mixed scientific", replicanti, 2, 0) + " replicanti";
+	a("ramount").innerHTML = "you have " + formatValue("Mixed scientific", replicanti, 2, 0) + " replicanti";
 	a("chance").innerHTML = "replicate chance: " + chance + "%";
 	a("tickspeed").innerHTML = "tickspeed: " + tickspeed + "ms";
 	a("amount").innerHTML = "you have " + formatValue("Mixed scientific", matter, 2, 0) + " matter (+" + formatValue("Mixed scientific", matterOnPrestige, 2, 0) +")";
