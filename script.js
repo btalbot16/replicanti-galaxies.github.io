@@ -44,10 +44,10 @@ function updateReplicanti(){
 	if(chance > Math.random()*100){
 		x++
 	} 
-}
-	replicanti = Math.floor(replicanti*(1+x/100));
-updateHTML()
-}
+	}
+		replicanti = Math.floor(replicanti*(1+x/100));
+		updateHTML()
+	}
 }
 
 updateLoop = window.setInterval(updateHTML(), updateRate)
