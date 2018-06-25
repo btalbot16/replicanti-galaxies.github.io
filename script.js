@@ -1,13 +1,13 @@
 function a(a){return document.getElementById(a)}
 
-var replicanti = 1;
-var chance = 10;
-var tickspeed = 1000;
-var updateRate = 50;
+var replicanti = new Decimal(1);
+var chance = new Decimal(10);
+var tickspeed = new Decimal(1000);
+var updateRate = new Decimal(50);
 
-var matter = 0;
-var matterOnPrestige = 0;
-var cprice = 1000;
+var matter = new Decimal(0);
+var matterOnPrestige = new Decimal(0);
+var cprice = new Decimal(1000);
 
 function updateHTML(){
 	console.log("UPDATE")
@@ -18,7 +18,7 @@ function updateHTML(){
 	a("cprice").innerHTML = cprice + " matter to upgrade chance";
 	a("updaterate").innerHTML = "update rate: " + updateRate + "ms"
 
-	if(!matter){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = tickspeed/matter + "% reduction to tickspeed"}
+	if(!matter){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = tickspeed.div(matter) + "% reduction to tickspeed"}
 }
 
 var slider = a("updateRange")
@@ -26,16 +26,16 @@ var slider = a("updateRange")
 slider.oninput = function() {
   updateRate = slider.value;
   clearInterval(updateLoop)
-  updateLoop = window.setInterval(updateHTML(), updateRate)
+  updateLoop = window.setInterval(updateHTML, updateRate)
 }
 
 function updateReplicanti(){
 	console.log("updating")
-	if(replicanti < 100){
-	  for(i=0;i<replicanti;i++){
+	if(replicanti.lt(100)){
+	  for(i=0;replicanti.gt(i);i++){
 		 if(chance > Math.random()*100){
-		  replicanti++;
-	  updateHTML()
+		  replicanti = replicanti.plus(1);
+	 	  updateHTML()
 		 }
 	  }
 	} else {
@@ -45,10 +45,10 @@ function updateReplicanti(){
 		x++
 	} 
 	}
-		replicanti = Math.floor(replicanti*(1+x/100));
+		replicanti = replicanti.mul(1+x/100).floor();
 		updateHTML()
 	}
 }
 
-updateLoop = window.setInterval(updateHTML(), updateRate)
-replicantiLoop = window.setInterval(updateReplicanti(), 1000)
+updateLoop = window.setInterval(updateHTML, updateRate)
+replicantiLoop = window.setInterval(updateReplicanti, 1000)
