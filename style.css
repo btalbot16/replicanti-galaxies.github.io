@@ -1,7 +1,5 @@
-* {
-  color: white;
-}
-
-body {
-  background-color: #d9d9d9;
-}
+pre{text-align:center} 
+#cprice{padding:2px;display:inline;border:1px solid black;border-radius:5px} 
+#matter{text-align:center} #replicanti{text-align:center} 
+#amount:hover{text-decoration:underline}
+#settings{bottom:0; position:fixed;margin: 5% auto;left: 0;right: 0;}
