@@ -16,14 +16,14 @@ function updateHTML(){
 	a("tickspeed").innerHTML = "tickspeed: " + tickspeed + "ms";
 	a("amount").innerHTML = "you have " + formatValue("Mixed scientific", matter, 2, 0) + " matter (+" + formatValue("Mixed scientific", matterOnPrestige, 2, 0) +")";
 	a("cprice").innerHTML = cprice + " matter to upgrade chance";
-	a("updaterate").innerHTML = "update rate: " + updateRate + "ms"
 
-	if(!matter){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = tickspeed.div(matter) + "% reduction to tickspeed"}
+	if(matter==0){a("reduction").innerHTML = "0% reduction to tickspeed"} else {a("reduction").innerHTML = tickspeed.div(matter) + "% reduction to tickspeed"}
 }
 
 var slider = a("updateRange")
 
 slider.oninput = function() {
+  a("updaterate").innerHTML = "update rate: " + updateRate + "ms"
   updateRate = slider.value;
   clearInterval(updateLoop)
   updateLoop = window.setInterval(updateHTML, updateRate)
