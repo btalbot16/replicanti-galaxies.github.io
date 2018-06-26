@@ -11,7 +11,7 @@ var matterOnPrestige = new Decimal(0);
 var cprice = new Decimal(1000);
 
 function updateHTML(){
-	console.log("UPDATE")
+	matterOnPrestige = replicanti.pow(0.2).minus(1);
 	a("ramount").innerHTML = "you have " + formatValue("Mixed scientific", replicanti, 2, 0) + " replicanti";
 	a("chance").innerHTML = "replicate chance: " + chance + "%";
 	a("tickspeed").innerHTML = "tickspeed: " + tickspeed + "ms";
@@ -22,7 +22,7 @@ function updateHTML(){
     		a("reduction").innerHTML = "0% reduction to tickspeed";
   	} else { 
     		a("reduction").innerHTML = formatValue("Standard", Decimal.pow(matter.log(4), 0.4),2,2) + "% reduction to tickspeed";
- 	 }
+ 	}	
 }
 
 var slider = a("updateRange")
@@ -57,3 +57,7 @@ function updateReplicanti(){
 
 updateLoop = window.setInterval(updateHTML, updateRate)
 replicantiLoop = window.setInterval(updateReplicanti, 1000)
+
+a("amount").onclick = function(){
+	if(matterOnPrestige==0){alert("You need atleast 35 replicanti to prestige!")}
+}
