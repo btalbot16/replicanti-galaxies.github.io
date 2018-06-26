@@ -17,7 +17,7 @@ function updateHTML(){
 	a("tickspeed").innerHTML = "tickspeed: " + tickspeedU() + "ms";
 	a("amount").innerHTML = "you have " + formatValue("Mixed scientific", matter, 2, 0) + " matter (+" + formatValue("Mixed scientific", matterOnPrestige.floor(), 2, 0) +")";
 	a("cprice").innerHTML = cprice + " matter to upgrade chance";
-
+	//(5.23 ÷ 100) × 1,000 =
 	if(matter == 0) {
     		a("reduction").innerHTML = "0% reduction to tickspeed";
   	} else { 
@@ -26,7 +26,14 @@ function updateHTML(){
 }
 
 function tickspeedU(){
-	if(matter.lte(0)){return tickspeed} else {return formatValue("Standard", tickspeed.div(matter), 2, 2)}
+	if(matter.lte(0)){return tickspeed} else {return formatValue("Standard", tickspeedR(), 2, 2)}
+}
+
+function tickspeedR(){
+	x = new Decimal(0)
+	x = (Decimal.pow(matter.log(4), 0.4).div(100)).mul(tickspeed)
+	console.log(x)
+	console.log(tickspeed.minus(x))
 }
 
 var slider = a("updateRange")
