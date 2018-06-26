@@ -21,7 +21,7 @@ function updateHTML(){
 	if(matter == 0) {
     		a("reduction").innerHTML = "0% reduction to tickspeed";
   	} else { 
-    		a("reduction").innerHTML = Math.pow(getBaseLog(4, matter), 0.2) + "% reduction to tickspeed";
+    		a("reduction").innerHTML = formatValue("Standard", Math.pow(getBaseLog(4, matter), 0.2), 2, 2) + "% reduction to tickspeed";
  	 }
 }
 
