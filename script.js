@@ -1,5 +1,5 @@
 function a(a){return document.getElementById(a)}
-function getBaseLog(x, y) {return Math.log(y) / Math.log(x);}
+function getBaseLog(x, y) {return Math.log10(y) / Math.log10(x);}
 
 var replicanti = new Decimal(1);
 var chance = new Decimal(10);
@@ -21,7 +21,7 @@ function updateHTML(){
 	if(matter == 0) {
     		a("reduction").innerHTML = "0% reduction to tickspeed";
   	} else { 
-    		a("reduction").innerHTML = formatValue("Standard", Math.pow(getBaseLog(4, matter), 0.2), 2, 2) + "% reduction to tickspeed";
+    		a("reduction").innerHTML = matter.log(4).pow(0.2) + "% reduction to tickspeed";
  	 }
 }
 
