@@ -26,7 +26,7 @@ function updateHTML(){
 }
 
 function tickspeedU(){
-	if(matter.lte(0){return tickspeed} else {return formatValue("Standard", tickspeed.div(matter), 2, 2)}
+	if(matter.lte(0)){return tickspeed} else {return formatValue("Standard", tickspeed.div(matter), 2, 2)}
 }
 
 var slider = a("updateRange")
