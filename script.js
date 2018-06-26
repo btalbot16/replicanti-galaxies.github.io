@@ -30,7 +30,7 @@ function tickspeedU(){
 }
 
 function tickspeedR(){
-	console.log(tickspeed.minus(Decimal.pow(matter.log(4), 0.4).div(100).mul(tickspeed))
+	console.log( tickspeed.minus( Decimal.pow( matter.log( 4 ), 0.4 ).div( 100 ).mul( tickspeed ) ) )
 }
 
 var slider = a("updateRange")
