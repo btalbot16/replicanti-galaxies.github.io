@@ -63,7 +63,7 @@ updateLoop = window.setInterval(updateHTML, updateRate)
 replicantiLoop = window.setInterval(updateReplicanti, 1000)
 
 a("amount").onclick = function(){
-	if(matterOnPrestige==0){alert("You need atleast 35 replicanti to prestige!")} else {
+	if(matterOnPrestige.floor().eq(0)){alert("You need atleast 35 replicanti to prestige!")} else {
 		matter = matter.plus(matterOnPrestige.floor())
 		replicanti.e = 0;
 		replicanti.m = 1;
