@@ -21,7 +21,7 @@ function updateHTML(){
 	if(matter == 0) {
     		a("reduction").innerHTML = "0% reduction to tickspeed";
   	} else { 
-    		a("reduction").innerHTML = matter.log(4).pow(0.2) + "% reduction to tickspeed";
+    		a("reduction").innerHTML = Decimal.pow(matter.log(4), 0,2) + "% reduction to tickspeed";
  	 }
 }
 
