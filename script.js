@@ -14,8 +14,8 @@ function updateHTML(){
 	matterOnPrestige = replicanti.pow(0.2).minus(1);
 	a("ramount").innerHTML = "you have " + formatValue("Mixed scientific", replicanti, 2, 0) + " replicanti";
 	a("chance").innerHTML = "replicate chance: " + chance + "%";
-	a("tickspeed").innerHTML = "tickspeed: " + tickspeed + "ms";
-	a("amount").innerHTML = "you have " + formatValue("Mixed scientific", matter, 2, 0) + " matter (+" + formatValue("Mixed scientific", matterOnPrestige, 2, 0) +")";
+	a("tickspeed").innerHTML = "tickspeed: " + tickspeedU() + "ms";
+	a("amount").innerHTML = "you have " + formatValue("Mixed scientific", matter, 2, 0) + " matter (+" + formatValue("Mixed scientific", matterOnPrestige.floor(), 2, 0) +")";
 	a("cprice").innerHTML = cprice + " matter to upgrade chance";
 
 	if(matter == 0) {
@@ -23,6 +23,10 @@ function updateHTML(){
   	} else { 
     		a("reduction").innerHTML = formatValue("Standard", Decimal.pow(matter.log(4), 0.4),2,2) + "% reduction to tickspeed";
  	}	
+}
+
+function tickspeedU(){
+	if(matter.lte(0){return tickspeed} else {return formatValue("Standard", tickspeed.div(matter), 2, 2)}
 }
 
 var slider = a("updateRange")
@@ -59,5 +63,10 @@ updateLoop = window.setInterval(updateHTML, updateRate)
 replicantiLoop = window.setInterval(updateReplicanti, 1000)
 
 a("amount").onclick = function(){
-	if(matterOnPrestige==0){alert("You need atleast 35 replicanti to prestige!")}
+	if(matterOnPrestige==0){alert("You need atleast 35 replicanti to prestige!")} else {
+		matter = matter.plus(matterOnPrestige.floor())
+		replicanti.e = 0;
+		replicanti.m = 1;
+		updateHTML()
+	}
 }
